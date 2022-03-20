@@ -40,6 +40,7 @@ dependencies {
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     def nav_version = "2.4.1"
+    def viewPagerVersion = '1.0.0'
 
     // predefined
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -60,5 +61,7 @@ dependencies {
     // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:$nav_version")
 
+    // Viewpager
+    implementation "androidx.viewpager2:viewpager2:$viewPagerVersion"
 
 }

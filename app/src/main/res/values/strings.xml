@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">GifExplorer</string>
+    <string name="app_name">Gif Explorer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="trending_tab_title">Trending</string>
+    <string name="favorite_tab_title">Favorite</string>
+
 </resources>
