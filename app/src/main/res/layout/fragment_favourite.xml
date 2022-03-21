@@ -2,18 +2,57 @@
 
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".views.FavouriteFragment">
+
+    <data>
+        <variable
+            name="hasFavorites"
+            type="boolean" />
+    </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favorite_gif_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:clipToPadding="false"
+            android:layout_marginStart="@dimen/card_side_margin"
+            android:layout_marginEnd="@dimen/card_side_margin"
+            android:layout_marginTop="@dimen/margin_normal"
+            app:isGone="@{!hasFavorites}"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:spanCount="@integer/favorite_grid_columns"
+            tools:listitem="@layout/list_item_gif"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:isGone="@{hasFavorites}">
+
+            <TextView
+                android:id="@+id/text_no_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_favorites"
+                android:textAppearance="?attr/textAppearanceHeadline5" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/colorPrimary"
+                android:text="@string/add_favorite"
+                app:backgroundTint="?attr/colorOnPrimary"
+                app:shapeAppearance="@style/ShapeAppearance.GifExplorer.Button.Add"/>
+
+        </LinearLayout>
 
     </FrameLayout>
 

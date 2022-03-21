@@ -57,20 +57,6 @@
             <!-- app:isFabGone="@{viewModel.isPlanted}" -->
 
 
-<!--            <TextView-->
-<!--                android:id="@+id/photographer"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginBottom="@dimen/margin_normal"-->
-<!--                android:layout_marginTop="@dimen/margin_normal"-->
-<!--                android:text="@string/add_to_favorite"-->
-<!--                android:textAppearance="?attr/textAppearanceListItem"-->
-<!--                android:gravity="center_horizontal"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/plant_photo"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                tools:text="@string/add_to_favorite"/>-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

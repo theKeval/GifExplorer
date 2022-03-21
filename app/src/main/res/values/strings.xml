@@ -10,5 +10,7 @@
     <string name="favorite_btn_content_description">Add To Favorite</string>
     <string name="search_title">Search GIF</string>
     <string name="search_hint">Search GIF</string>
+    <string name="no_favorites">No Favourite GIF</string>
+    <string name="add_favorite">Add Favourite</string>
 
 </resources>

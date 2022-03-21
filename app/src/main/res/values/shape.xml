@@ -15,4 +15,13 @@
         name="ShapeAppearance.GifExplorer.FAB"
         parent="ShapeAppearance.MaterialComponents.SmallComponent" />
 
+    <style name="ShapeAppearance.GifExplorer.Button.Add" parent="ShapeAppearance.MaterialComponents">
+        <item name="cornerFamily">rounded</item>
+
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">@dimen/button_corner_radius</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">@dimen/button_corner_radius</item>
+    </style>
+
 </resources>

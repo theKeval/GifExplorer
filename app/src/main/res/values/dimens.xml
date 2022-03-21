@@ -14,5 +14,6 @@
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_extra_small">4dp</dimen>
     <dimen name="fab_margin">8dp</dimen>
+    <dimen name="button_corner_radius">12dp</dimen>
 
 </resources>
