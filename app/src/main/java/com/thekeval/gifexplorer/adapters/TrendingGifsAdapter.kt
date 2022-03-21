@@ -8,10 +8,10 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.thekeval.gifexplorer.adapters.TrendingGifsAdapter.TrendingGifsViewHolder
-import com.thekeval.gifexplorer.data.models.TrendingResponseData
+import com.thekeval.gifexplorer.data.models.GiphyResponseData
 import com.thekeval.gifexplorer.databinding.ListItemGifBinding
 
-class TrendingGifsAdapter : PagingDataAdapter<TrendingResponseData, TrendingGifsViewHolder>(TrendingDiffCallback()) {
+class TrendingGifsAdapter : PagingDataAdapter<GiphyResponseData, TrendingGifsViewHolder>(TrendingDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendingGifsViewHolder {
         return TrendingGifsViewHolder(
@@ -44,7 +44,7 @@ class TrendingGifsAdapter : PagingDataAdapter<TrendingResponseData, TrendingGifs
             }
         }
 
-        fun bind(item: TrendingResponseData) {
+        fun bind(item: GiphyResponseData) {
             binding.apply {
                 gif = item
                 executePendingBindings()
@@ -54,12 +54,12 @@ class TrendingGifsAdapter : PagingDataAdapter<TrendingResponseData, TrendingGifs
 
 }
 
-private class TrendingDiffCallback : DiffUtil.ItemCallback<TrendingResponseData>() {
-    override fun areItemsTheSame(oldItem: TrendingResponseData, newItem: TrendingResponseData): Boolean {
+private class TrendingDiffCallback : DiffUtil.ItemCallback<GiphyResponseData>() {
+    override fun areItemsTheSame(oldItem: GiphyResponseData, newItem: GiphyResponseData): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: TrendingResponseData, newItem: TrendingResponseData): Boolean {
+    override fun areContentsTheSame(oldItem: GiphyResponseData, newItem: GiphyResponseData): Boolean {
         return oldItem == newItem
     }
 }

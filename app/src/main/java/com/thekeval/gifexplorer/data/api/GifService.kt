@@ -1,7 +1,7 @@
 package com.thekeval.gifexplorer.data.api
 
 import com.thekeval.gifexplorer.BuildConfig
-import com.thekeval.gifexplorer.data.models.TrendingResponse
+import com.thekeval.gifexplorer.data.models.GiphyResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
@@ -19,8 +19,20 @@ interface GifService {
         @Query("offset")
         offset: Int = 0,
         @Query("api_key")
-        apiKey: String = BuildConfig.GIPHY_API_KEY,
-    ): TrendingResponse
+        apiKey: String = BuildConfig.GIPHY_API_KEY
+    ): GiphyResponse
+
+    @GET("search")
+    suspend fun getSearchedGif(
+        @Query("q")
+        query: String,
+        @Query("limit")
+        limit: Int = 25,
+        @Query("offset")
+        offset: Int = 0,
+        @Query("api_key")
+        apiKey: String = BuildConfig.GIPHY_API_KEY
+    ): GiphyResponse
 
     companion object {
         private const val BASE_URL = "https://api.giphy.com/v1/gifs/"

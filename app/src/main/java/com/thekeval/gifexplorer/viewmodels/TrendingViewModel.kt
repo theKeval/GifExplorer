@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.thekeval.gifexplorer.data.GifTrendingRepository
-import com.thekeval.gifexplorer.data.models.TrendingResponseData
+import com.thekeval.gifexplorer.data.models.GiphyResponseData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -15,12 +15,12 @@ class TrendingViewModel @Inject constructor(
     private val repository: GifTrendingRepository
 ) : ViewModel() {
 
-    private var currentTrendingResult: Flow<PagingData<TrendingResponseData>>? = null
+    private var currentGiphyResult: Flow<PagingData<GiphyResponseData>>? = null
 
-    fun trendingGifs(): Flow<PagingData<TrendingResponseData>> {
-        val newResult: Flow<PagingData<TrendingResponseData>> =
+    fun trendingGifs(): Flow<PagingData<GiphyResponseData>> {
+        val newResult: Flow<PagingData<GiphyResponseData>> =
             repository.getTrendingGifStream().cachedIn(viewModelScope)
-        currentTrendingResult = newResult
+        currentGiphyResult = newResult
         return newResult
     }
 

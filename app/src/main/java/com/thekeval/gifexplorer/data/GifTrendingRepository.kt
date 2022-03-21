@@ -5,13 +5,13 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.thekeval.gifexplorer.data.api.GifPagingSource
 import com.thekeval.gifexplorer.data.api.GifService
-import com.thekeval.gifexplorer.data.models.TrendingResponseData
+import com.thekeval.gifexplorer.data.models.GiphyResponseData
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class GifTrendingRepository @Inject constructor(private val service: GifService) {
 
-    fun getTrendingGifStream(): Flow<PagingData<TrendingResponseData>> {
+    fun getTrendingGifStream(): Flow<PagingData<GiphyResponseData>> {
         return Pager(
             config = PagingConfig(enablePlaceholders = false, pageSize = NETWORK_PAGE_SIZE),
             pagingSourceFactory = { GifPagingSource(service) }

@@ -2,23 +2,22 @@ package com.thekeval.gifexplorer.data.api
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.thekeval.gifexplorer.data.models.TrendingResponseData
-import kotlin.math.roundToInt
+import com.thekeval.gifexplorer.data.models.GiphyResponseData
 
 
 private const val GIPHY_STARTING_PAGE_INDEX = 1
 
 class GifPagingSource(
     private val service: GifService
-    ): PagingSource<Int, TrendingResponseData>() {
+    ): PagingSource<Int, GiphyResponseData>() {
 
-    override fun getRefreshKey(state: PagingState<Int, TrendingResponseData>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, GiphyResponseData>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey
         }
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, TrendingResponseData> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, GiphyResponseData> {
         val page = params.key ?: GIPHY_STARTING_PAGE_INDEX
         return try {
             val response = service.getTrending(params.loadSize, page)

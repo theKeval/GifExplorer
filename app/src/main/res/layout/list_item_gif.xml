@@ -11,7 +11,7 @@
             type="android.view.View.OnClickListener" />
         <variable
             name="gif"
-            type="com.thekeval.gifexplorer.data.models.TrendingResponseData" />
+            type="com.thekeval.gifexplorer.data.models.GiphyResponseData" />
     </data>
 
     <com.thekeval.gifexplorer.views.MaskedCardView
