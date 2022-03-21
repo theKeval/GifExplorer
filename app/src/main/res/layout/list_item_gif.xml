@@ -39,23 +39,38 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            <!-- app:imageFromUrl="@{photo.urls.small}" -->
 
-            <TextView
-                android:id="@+id/photographer"
-                android:layout_width="0dp"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                style="@style/Widget.MaterialComponents.FloatingActionButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_normal"
-                android:layout_marginTop="@dimen/margin_normal"
-                android:text="@string/add_to_favorite"
-                android:textAppearance="?attr/textAppearanceListItem"
-                android:gravity="center_horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/plant_photo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                tools:text="@string/add_to_favorite"/>
-            <!-- android:text="@{photo.user.name}" -->
+                android:layout_margin="@dimen/fab_margin"
+                android:onClick="@{clickListener}"
+                android:tint="@android:color/white"
+
+                app:layout_anchorGravity="bottom|end"
+                app:layout_constraintBottom_toBottomOf="@+id/plant_photo"
+                app:layout_constraintEnd_toEndOf="@+id/plant_photo"
+                app:shapeAppearance="@style/ShapeAppearance.GifExplorer.FAB"
+                app:srcCompat="@drawable/ic_favorite" />
+            <!-- app:isFabGone="@{viewModel.isPlanted}" -->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/photographer"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="@dimen/margin_normal"-->
+<!--                android:layout_marginTop="@dimen/margin_normal"-->
+<!--                android:text="@string/add_to_favorite"-->
+<!--                android:textAppearance="?attr/textAppearanceListItem"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/plant_photo"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                tools:text="@string/add_to_favorite"/>-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

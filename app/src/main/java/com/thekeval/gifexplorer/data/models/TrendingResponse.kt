@@ -10,6 +10,7 @@ data class TrendingResponse(
 
 data class TrendingResponseData(
     @field:SerializedName("id") val id: String,
+    @field:SerializedName("title") val title: String,
     @field:SerializedName("images") val images: TrendingResponseDataImage
 )
 

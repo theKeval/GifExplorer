@@ -7,5 +7,6 @@
     <string name="favorite_tab_title">Favorite</string>
     <string name="gif_image_content_description">GIF Image</string>
     <string name="add_to_favorite">Add To Favorite</string>
+    <string name="favorite_btn_content_description">Add To Favorite</string>
 
 </resources>

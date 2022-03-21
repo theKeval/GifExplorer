@@ -11,4 +11,8 @@
 <!--        <item name="cornerSizeBottomLeft">@dimen/card_corner_radius</item>-->
     </style>
 
+    <style
+        name="ShapeAppearance.GifExplorer.FAB"
+        parent="ShapeAppearance.MaterialComponents.SmallComponent" />
+
 </resources>
