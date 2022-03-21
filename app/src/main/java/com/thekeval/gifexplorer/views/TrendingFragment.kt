@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.thekeval.gifexplorer.adapters.GifsAdapter
 import com.thekeval.gifexplorer.databinding.FragmentTrendingBinding
@@ -32,6 +34,14 @@ class TrendingFragment : Fragment() {
         // Inflating the layout through databinding
         binding = FragmentTrendingBinding.inflate(inflater, container, false)
         context ?: return binding.root
+
+        binding.etSearch.doOnTextChanged { text, start, before, count ->
+            viewModel.onSearch(text.toString())
+        }
+
+        viewModel.searchText.observe(viewLifecycleOwner, Observer { query ->
+            fetchGifs(query)
+        })
 
         binding.gifList.adapter = adapter
         fetchGifs()

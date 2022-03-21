@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Gif Explorer</string>
+    <string name="app_name">GIF Explorer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -8,5 +8,7 @@
     <string name="gif_image_content_description">GIF Image</string>
     <string name="add_to_favorite">Add To Favorite</string>
     <string name="favorite_btn_content_description">Add To Favorite</string>
+    <string name="search_title">Search GIF</string>
+    <string name="search_hint">Search GIF</string>
 
 </resources>

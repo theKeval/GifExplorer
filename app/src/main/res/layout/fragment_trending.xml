@@ -6,26 +6,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".views.TrendingFragment">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <data>
+        <variable
+            name="viewModel"
+            type="com.thekeval.gifexplorer.viewmodels.TrendingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginEnd="@dimen/margin_normal"
+            app:boxCollapsedPaddingTop="5dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="7dp"
+                android:background="@android:drawable/editbox_background"
+                android:hint="@string/search_hint"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/gif_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:clipToPadding="false"
-            android:paddingEnd="@dimen/card_side_margin"
             android:paddingStart="@dimen/card_side_margin"
-
+            android:paddingEnd="@dimen/card_side_margin"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_search"
             app:spanCount="@integer/grid_columns"
-            tools:context="com.google.samples.apps.sunflower.GardenActivity"
-            tools:listitem="@layout/list_item_gif"/>
-        <!-- android:paddingTop="@dimen/trending_header_margin" -->
+            tools:context="com.thekeval.gifexplorer.MainActivity"
+            tools:listitem="@layout/list_item_gif" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
 
