@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.thekeval.gifexplorer.R
 import com.thekeval.gifexplorer.databinding.FragmentFavouriteBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FavouriteFragment : Fragment() {
 
     private lateinit var binding: FragmentFavouriteBinding

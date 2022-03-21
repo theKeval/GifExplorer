@@ -12,7 +12,9 @@ import com.thekeval.gifexplorer.adapters.FAVOURITE_PAGE_INDEX
 import com.thekeval.gifexplorer.adapters.HomeViewPagerAdapter
 import com.thekeval.gifexplorer.adapters.TRENDING_PAGE_INDEX
 import com.thekeval.gifexplorer.databinding.FragmentHomeViewPagerBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeViewPagerFragment : Fragment() {
 
     override fun onCreateView(
