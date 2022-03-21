@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.thekeval.gifexplorer.R
-import com.thekeval.gifexplorer.adapters.TrendingGifsAdapter
+import com.thekeval.gifexplorer.adapters.GifsAdapter
 import com.thekeval.gifexplorer.databinding.FragmentTrendingBinding
 import com.thekeval.gifexplorer.viewmodels.TrendingViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,8 +20,8 @@ class TrendingFragment : Fragment() {
 
     private lateinit var binding: FragmentTrendingBinding
     private val viewModel: TrendingViewModel by viewModels()
-    private var fetchTrendingJob: Job? = null
-    private val adapter = TrendingGifsAdapter()
+    private var fetchGifsJob: Job? = null
+    private val adapter = GifsAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,16 +34,16 @@ class TrendingFragment : Fragment() {
         context ?: return binding.root
 
         binding.gifList.adapter = adapter
-        fetchTrending()
+        fetchGifs()
 
         return binding.root
     }
 
-    private fun fetchTrending() {
+    private fun fetchGifs(query: String = "") {
         // Make sure we cancel the previous job before creating a new one
-        fetchTrendingJob?.cancel()
-        fetchTrendingJob = lifecycleScope.launch {
-            viewModel.trendingGifs().collectLatest {
+        fetchGifsJob?.cancel()
+        fetchGifsJob = lifecycleScope.launch {
+            viewModel.fetchGifs(query).collectLatest {
                 adapter.submitData(it)
             }
         }

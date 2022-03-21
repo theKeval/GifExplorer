@@ -17,11 +17,13 @@ class TrendingViewModel @Inject constructor(
 
     private var currentGiphyResult: Flow<PagingData<GiphyResponseData>>? = null
 
-    fun trendingGifs(): Flow<PagingData<GiphyResponseData>> {
+    fun fetchGifs(query: String = ""): Flow<PagingData<GiphyResponseData>> {
         val newResult: Flow<PagingData<GiphyResponseData>> =
-            repository.getTrendingGifStream().cachedIn(viewModelScope)
+            repository.getGifStream(query).cachedIn(viewModelScope)
         currentGiphyResult = newResult
         return newResult
     }
+
+
 
 }

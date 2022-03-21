@@ -11,10 +11,10 @@ import javax.inject.Inject
 
 class GifTrendingRepository @Inject constructor(private val service: GifService) {
 
-    fun getTrendingGifStream(): Flow<PagingData<GiphyResponseData>> {
+    fun getGifStream(query: String): Flow<PagingData<GiphyResponseData>> {
         return Pager(
             config = PagingConfig(enablePlaceholders = false, pageSize = NETWORK_PAGE_SIZE),
-            pagingSourceFactory = { GifPagingSource(service) }
+            pagingSourceFactory = { GifPagingSource(service, query) }
         ).flow
     }
 

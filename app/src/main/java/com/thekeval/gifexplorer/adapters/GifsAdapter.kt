@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.thekeval.gifexplorer.adapters.TrendingGifsAdapter.TrendingGifsViewHolder
+import com.thekeval.gifexplorer.adapters.GifsAdapter.GifsViewHolder
 import com.thekeval.gifexplorer.data.models.GiphyResponseData
 import com.thekeval.gifexplorer.databinding.ListItemGifBinding
 
-class TrendingGifsAdapter : PagingDataAdapter<GiphyResponseData, TrendingGifsViewHolder>(TrendingDiffCallback()) {
+class GifsAdapter : PagingDataAdapter<GiphyResponseData, GifsViewHolder>(GifsDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendingGifsViewHolder {
-        return TrendingGifsViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GifsViewHolder {
+        return GifsViewHolder(
             ListItemGifBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -23,7 +23,7 @@ class TrendingGifsAdapter : PagingDataAdapter<GiphyResponseData, TrendingGifsVie
         )
     }
 
-    override fun onBindViewHolder(holder: TrendingGifsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: GifsViewHolder, position: Int) {
         val gif = getItem(position)
         if (gif != null) {
             holder.bind(gif)
@@ -31,7 +31,7 @@ class TrendingGifsAdapter : PagingDataAdapter<GiphyResponseData, TrendingGifsVie
     }
 
 
-    class TrendingGifsViewHolder(
+    class GifsViewHolder(
         private val binding: ListItemGifBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         init {
@@ -54,7 +54,7 @@ class TrendingGifsAdapter : PagingDataAdapter<GiphyResponseData, TrendingGifsVie
 
 }
 
-private class TrendingDiffCallback : DiffUtil.ItemCallback<GiphyResponseData>() {
+private class GifsDiffCallback : DiffUtil.ItemCallback<GiphyResponseData>() {
     override fun areItemsTheSame(oldItem: GiphyResponseData, newItem: GiphyResponseData): Boolean {
         return oldItem.id == newItem.id
     }
