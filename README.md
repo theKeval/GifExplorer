@@ -14,3 +14,8 @@ giphy_api_key=<your Giphy api key>
 ![Jetpack Libraries](mad-score/jetpack.png)
 ![Kotlin Libraries & Features](mad-score/kotlin.png)
 ![Summary](mad-score/summary.png)
+
+## Screenshots
+
+![trending](screenshots/trending.jpeg) ![favorite](screenshots/favorites.jpeg)
+![search](screenshots/search-1.jpeg)  ![search-with-favorite-icons](screenshots/search-2-with-favorite-icons.jpeg)
