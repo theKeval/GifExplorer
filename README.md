@@ -11,11 +11,11 @@ giphy_api_key=<your Giphy api key>
 ```
 ### Modern Android Development ([MAD Scoreboard](https://developer.android.com/modern-android-development/scorecard))
 
-![Jetpack Libraries](mad-score/jetpack.png=500)
-![Kotlin Libraries & Features](mad-score/kotlin.png=500)
-![Summary](mad-score/summary.png=500)
+![Jetpack Libraries](mad-score/jetpack.png=500x)
+![Kotlin Libraries & Features](mad-score/kotlin.png=500x)
+![Summary](mad-score/summary.png=500x)
 
 ## Screenshots
 
-![trending](screenshots/trending.jpeg=500) ![favorite](screenshots/favorites.jpeg=500)
-![search](screenshots/search-1.jpeg=500)  ![search-with-favorite-icons](screenshots/search-2-with-favorite-icons.jpeg=500)
+![trending](screenshots/trending.jpeg=500x) ![favorite](screenshots/favorites.jpeg=500x)
+![search](screenshots/search-1.jpeg=500x)  ![search-with-favorite-icons](screenshots/search-2-with-favorite-icons.jpeg=500x)
