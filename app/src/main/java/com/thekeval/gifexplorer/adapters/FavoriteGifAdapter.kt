@@ -14,11 +14,14 @@ import com.thekeval.gifexplorer.R
 import com.thekeval.gifexplorer.data.local.GifEntity
 import com.thekeval.gifexplorer.data.local.toGiphyResponseData
 import com.thekeval.gifexplorer.databinding.ListItemGifBinding
+import com.thekeval.gifexplorer.views.GifFavoriteFABClicked
+import com.thekeval.gifexplorer.views.SetHeartDrawable
 
-class FavoriteGifAdapter :
-    ListAdapter<GifEntity, FavoriteGifAdapter.ViewHolder>(
-        FavoriteGifDiffCallback()
-    ) {
+class FavoriteGifAdapter(
+    val callback: GifFavoriteFABClicked,
+    val setHeartDrawable: SetHeartDrawable
+) : ListAdapter<GifEntity, FavoriteGifAdapter.ViewHolder>(FavoriteGifDiffCallback()) {
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -34,26 +37,19 @@ class FavoriteGifAdapter :
     }
 
     override fun onBindViewHolder(holder: FavoriteGifAdapter.ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), callback, setHeartDrawable)
     }
 
 
     class ViewHolder(
         private val binding: ListItemGifBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        init {
-//            binding.setClickListener { view ->
-//                binding.gif?.let { gif ->
-//                    val uri = Uri.parse(gif.images.fixedHeight.url)
-//                    val intent = Intent(Intent.ACTION_VIEW, uri)
-//                    view.context.startActivity(intent)
-//                }
-//            }
-        }
 
-        fun bind(gifEntity: GifEntity) {
+        fun bind(gifEntity: GifEntity, callback: GifFavoriteFABClicked, setHeartDrawable: SetHeartDrawable) {
             with(binding) {
                 gif = gifEntity.toGiphyResponseData()
+                gifFavFabClicked = callback
+                setHeart = setHeartDrawable
                 executePendingBindings()
             }
         }

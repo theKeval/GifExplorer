@@ -13,7 +13,10 @@ import com.thekeval.gifexplorer.databinding.ListItemGifBinding
 import com.thekeval.gifexplorer.views.GifFavoriteFABClicked
 import com.thekeval.gifexplorer.views.SetHeartDrawable
 
-class GifsAdapter(val callback: GifFavoriteFABClicked, val setHeartDrawable: SetHeartDrawable) : PagingDataAdapter<GiphyResponseData, GifsViewHolder>(GifsDiffCallback()) {
+class GifsAdapter(
+    val callback: GifFavoriteFABClicked,
+    val setHeartDrawable: SetHeartDrawable
+) : PagingDataAdapter<GiphyResponseData, GifsViewHolder>(GifsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GifsViewHolder {
         return GifsViewHolder(
