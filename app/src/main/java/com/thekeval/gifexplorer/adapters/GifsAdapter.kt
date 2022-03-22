@@ -49,6 +49,8 @@ class GifsAdapter(
         }
     }
 
+    
+
 }
 
 private class GifsDiffCallback : DiffUtil.ItemCallback<GiphyResponseData>() {

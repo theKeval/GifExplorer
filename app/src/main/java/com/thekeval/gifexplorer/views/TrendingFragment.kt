@@ -79,6 +79,19 @@ class TrendingFragment : Fragment() {
         return binding.root
     }
 
+    override fun onPause() {
+        Log.d(TAG, "onPause: ")
+
+        super.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        Log.d(TAG, "onResume: calling adapter.notifyDataSetChanged()")
+        adapter?.notifyDataSetChanged()
+    }
+
     private fun fetchGifs(query: String = "") {
         // Make sure we cancel the previous job before creating a new one
         fetchGifsJob?.cancel()
