@@ -9,3 +9,8 @@ To use the API, copy the API key and add it to the project in `gradle.properties
 ```
 giphy_api_key=<your Giphy api key>
 ```
+### Modern Android Development ([MAD Scoreboard](https://developer.android.com/modern-android-development/scorecard))
+
+![Jetpack Libraries](mad-score/jetpack.png)
+![Kotlin Libraries & Features](mad-score/kotlin.png)
+![Summary](mad-score/summary.png)
