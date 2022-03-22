@@ -23,6 +23,10 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        // To showcase the secure use of API key I have implemented this flow
+        // to retrieve the api key. but for ease I'm providing my BETA API key
+        // to simply copy it in place of `getGiphyApiKey()` and run the app
+        // aFwKuoVemqepex7DCJzdtPVqnNMvsrex
         buildConfigField("String", "GIPHY_API_KEY", "\"" + getGiphyApiKey() + "\"")
     }
 
