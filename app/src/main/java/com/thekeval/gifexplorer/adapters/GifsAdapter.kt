@@ -52,17 +52,17 @@ class GifsAdapter(val callback: GifFavoriteFABClicked,
     ) : RecyclerView.ViewHolder(binding.root) {
         init {
 
-//            executePendingBinding.observe(viewLifeCycleOwner, Observer {
-//                if (it) {
-//                    Log.d(TAG, "GifsViewHolder: executing pending binding")
-//                    // binding.executePendingBindings()
-//                    // binding.fabFav.setImageResource(binding.setHeart.setHeartDrawable(giphyResData))
-//                    binding.fabFav.setImageResource(R.drawable.ic_heart_filled)
-//                }
-//                else {
-//                    binding.fabFav.setImageResource(R.drawable.ic_heart)
-//                }
-//            })
+            executePendingBinding.observe(viewLifeCycleOwner, Observer {
+                if (it) {
+                    Log.d(TAG, "GifsViewHolder: executing pending binding")
+                    // binding.executePendingBindings()
+                    // binding.fabFav.setImageResource(binding.setHeart.setHeartDrawable(giphyResData))
+                    binding.fabFav.setImageResource(R.drawable.ic_heart_filled)
+                }
+                else {
+                    binding.fabFav.setImageResource(R.drawable.ic_heart)
+                }
+            })
 
 //            binding.setClickListener { view ->
 //                binding.gif?.let { gif ->
@@ -87,17 +87,17 @@ class GifsAdapter(val callback: GifFavoriteFABClicked,
                 setHeart = setHeartDrawable
                 executePendingBindings()
 
-                executePendingBinding.observe(viewLifeCycleOwner, Observer {
-                    if (it) {
-                        Log.d(TAG, "GifsViewHolder: executing pending binding")
-                        // binding.executePendingBindings()
-                        // binding.fabFav.setImageResource(binding.setHeart.setHeartDrawable(giphyResData))
-                        binding.fabFav.setImageResource(R.drawable.ic_heart_filled)
-                    }
-                    else {
-                        binding.fabFav.setImageResource(R.drawable.ic_heart)
-                    }
-                })
+//                executePendingBinding.observe(viewLifeCycleOwner, Observer {
+//                    if (it) {
+//                        Log.d(TAG, "GifsViewHolder: executing pending binding")
+//                        // binding.executePendingBindings()
+//                        // binding.fabFav.setImageResource(binding.setHeart.setHeartDrawable(giphyResData))
+//                        binding.fabFav.setImageResource(R.drawable.ic_heart_filled)
+//                    }
+//                    else {
+//                        binding.fabFav.setImageResource(R.drawable.ic_heart)
+//                    }
+//                })
 
             }
         }
