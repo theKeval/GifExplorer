@@ -63,7 +63,7 @@ class TrendingFragment : Fragment() {
             }
 
             viewModel.fetchFavoritedGifs()
-            binding.executePendingBindings()
+            adapter?.notifyDataSetChanged()
 
         }, SetHeartDrawable {
             if (viewModel.isFavorited(it.id)) {
