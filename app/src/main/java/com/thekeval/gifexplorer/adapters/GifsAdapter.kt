@@ -32,19 +32,9 @@ class GifsAdapter(val callback: GifFavoriteFABClicked, val setHeartDrawable: Set
         }
     }
 
-
     class GifsViewHolder(
         private val binding: ListItemGifBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        init {
-//            binding.setClickListener { view ->
-//                binding.gif?.let { gif ->
-//                    val uri = Uri.parse(gif.images.fixedHeight.url)
-//                    val intent = Intent(Intent.ACTION_VIEW, uri)
-//                    view.context.startActivity(intent)
-//                }
-//            }
-        }
 
         fun bind(item: GiphyResponseData, callback: GifFavoriteFABClicked, setHeartDrawable: SetHeartDrawable) {
             binding.apply {

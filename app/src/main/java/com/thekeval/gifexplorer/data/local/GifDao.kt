@@ -19,10 +19,10 @@ interface GifDao {
     @Query("SELECT * FROM favorited_gifs")
     fun getFavoritedGifs(): Flow<List<GifEntity>>
 
+    /**
+     * adding this to get data without Flow, using in TrendingVM
+     */
     @Query("SELECT * FROM favorited_gifs")
     suspend fun getAllGifs(): List<GifEntity>
-
-//    @Query("SELECT EXISTS(SELECT * FROM favorited_gifs WHERE gif_id = :gifId)")
-//    fun isFavorited(gifId: String): Flow<Boolean>
 
 }

@@ -26,15 +26,6 @@ fun bindIsGone(view: View, isGone: Boolean) {
     }
 }
 
-@BindingAdapter("isFabGone")
-fun bindIsFabGone(view: FloatingActionButton, isGone: Boolean?) {
-    if (isGone == null || isGone) {
-        view.hide()
-    } else {
-        view.show()
-    }
-}
-
 @BindingAdapter("fabSrc")
 fun bindFabSrc(view: FloatingActionButton, drawableresId: Int) {
     view.setImageResource(drawableresId)

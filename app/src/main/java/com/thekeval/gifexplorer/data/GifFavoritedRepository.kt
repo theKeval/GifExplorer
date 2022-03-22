@@ -19,20 +19,7 @@ class GifFavoritedRepository @Inject constructor(
     }
 
     suspend fun removeFavoriteGif(gifEntity: GifEntity) {
-        Log.d(TAG, "removeFavoriteGif: ${gifDao.deleteGif(gifEntity.gifId)}")     // gifDao.deleteGif(gifEntity)
-    }
-
-    // fun isFavorited(gifId: String) = gifDao.isFavorited(gifId)
-    fun isFavorited(gif: GifEntity) : Boolean {
-
-        Log.d(TAG, "isFavorited: gifEntity=${gif.gifId}")
-        val temp = getFavoritedGifs().asLiveData()
-        temp.value?.forEach { gif -> Log.d(TAG, "isFavorited: gifId=${gif.gifId}, name=${gif.name}") }
-        return false
-
-//        val temp = getFavoritedGifs().asLiveData().value?.contains(gif)
-//        Log.d(TAG, "isFavorited: $temp")
-//        return temp ?: false
+        Log.d(TAG, "removeFavoriteGif: ${gifDao.deleteGif(gifEntity.gifId)}")
     }
 
     fun getFavoritedGifs() = gifDao.getFavoritedGifs()
