@@ -56,14 +56,17 @@ class TrendingFragment : Fragment() {
             if(viewModel.isFavorited(it.id)) {
                 Log.d(TAG, "onCreateView: removing from favorite ${it.id}")
                 viewModel.removeFromFavorite(it)
+                viewModel.setExecutePendingBindings(false)
             }
             else {
                 Log.d(TAG, "onCreateView: adding to favorite ${it.id}")
                 viewModel.addToFavorite(it)
+                viewModel.setExecutePendingBindings(true)
             }
 
             viewModel.fetchFavoritedGifs()
-            binding.executePendingBindings()
+
+            // viewModel.setExecutePendingBindings(false)
 
         }, SetHeartDrawable {
             if (viewModel.isFavorited(it.id)) {
@@ -72,7 +75,7 @@ class TrendingFragment : Fragment() {
             else {
                 R.drawable.ic_heart
             }
-        })
+        }, viewModel.executePendingBindings, viewLifecycleOwner)
 
         binding.gifList.adapter = adapter
         fetchGifs()

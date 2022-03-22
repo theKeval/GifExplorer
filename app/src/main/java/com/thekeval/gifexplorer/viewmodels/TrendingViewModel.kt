@@ -35,6 +35,10 @@ class TrendingViewModel @Inject constructor(
     val favoritedGifs: LiveData<List<GifEntity>>
         get() = _favoritedGifs
 
+    private var _executePendingBindings = MutableLiveData<Boolean>()
+    val executePendingBindings: LiveData<Boolean>
+        get() = _executePendingBindings
+
     init {
         fetchFavoritedGifs()
     }
@@ -56,6 +60,10 @@ class TrendingViewModel @Inject constructor(
         viewModelScope.launch {
             _favoritedGifs.value = gifFavoritedRepository.getAllGifs()
         }
+    }
+
+    fun setExecutePendingBindings(value: Boolean) {
+        _executePendingBindings.value = value
     }
 
     fun addToFavorite(giphyResponseData: GiphyResponseData) {
