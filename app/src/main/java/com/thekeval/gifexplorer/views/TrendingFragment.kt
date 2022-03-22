@@ -29,7 +29,6 @@ class TrendingFragment : Fragment() {
     private lateinit var binding: FragmentTrendingBinding
     private val viewModel: TrendingViewModel by viewModels()
     private var fetchGifsJob: Job? = null
-    // private val adapter = GifsAdapter()
     private var adapter: GifsAdapter? = null
 
     override fun onCreateView(

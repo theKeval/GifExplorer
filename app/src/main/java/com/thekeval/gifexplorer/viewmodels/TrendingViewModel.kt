@@ -22,7 +22,6 @@ private const val TAG = "TrendingViewModel"
 
 @HiltViewModel
 class TrendingViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle,
     private val repository: GifTrendingRepository,
     private val gifFavoritedRepository: GifFavoritedRepository
 ) : ViewModel() {
@@ -82,19 +81,5 @@ class TrendingViewModel @Inject constructor(
 
         return false
     }
-
-//    fun isFavorited(gif: GifEntity): Boolean {
-//
-//        viewModelScope.launch {
-//            val abc = gifFavoritedRepository.getAllGifs().forEach {
-//                if (it.gifId == gif.gifId) retu
-//            }
-//        }
-//
-//
-////        val liveBool = gifFavoritedRepository.isFavorited(gif)
-////        Log.d(TAG, "isFavorited: ${liveBool}")
-////        return liveBool     // .value ?: false
-//    }
 
 }
