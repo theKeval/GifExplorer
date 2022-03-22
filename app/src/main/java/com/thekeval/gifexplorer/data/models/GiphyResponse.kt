@@ -1,6 +1,7 @@
 package com.thekeval.gifexplorer.data.models
 
 import com.google.gson.annotations.SerializedName
+import com.thekeval.gifexplorer.data.local.GifEntity
 
 data class GiphyResponse(
     @field:SerializedName("data") val data: List<GiphyResponseData>,
@@ -36,3 +37,11 @@ data class GiphyResponseMeta(
     @field:SerializedName("msg") val message: String,
     @field:SerializedName("response_id") val responseId: String
 )
+
+fun GiphyResponseData.toGifEntity(): GifEntity {
+    return GifEntity(
+        gifId = id,
+        name = title,
+        url = images.fixedHeight.url
+    )
+}

@@ -9,20 +9,24 @@ import com.thekeval.gifexplorer.data.models.ImageRendition
 
 @Entity(tableName = "favorited_gifs")
 data class GifEntity(
-    @PrimaryKey
-    @ColumnInfo(name = "id")
-    val id: String,
+
+    @ColumnInfo(name = "gif_id")
+    val gifId: String,
 
     @ColumnInfo(name = "name")
     val name: String,
 
     @ColumnInfo(name = "url")
     val url: String
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    var id: Long = 0
+}
 
 fun GifEntity.toGiphyResponseData(): GiphyResponseData {
     return GiphyResponseData(
-        id = id,
+        id = gifId,
         title = name,
         images = GiphyResponseDataImage(
             ImageRendition(

@@ -5,6 +5,7 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 @BindingAdapter("imageFromUrl")
 fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
@@ -23,4 +24,18 @@ fun bindIsGone(view: View, isGone: Boolean) {
     } else {
         View.VISIBLE
     }
+}
+
+@BindingAdapter("isFabGone")
+fun bindIsFabGone(view: FloatingActionButton, isGone: Boolean?) {
+    if (isGone == null || isGone) {
+        view.hide()
+    } else {
+        view.show()
+    }
+}
+
+@BindingAdapter("fabSrc")
+fun bindFabSrc(view: FloatingActionButton, drawableresId: Int) {
+    view.setImageResource(drawableresId)
 }

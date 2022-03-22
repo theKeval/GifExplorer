@@ -6,12 +6,37 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="clickListener"
-            type="android.view.View.OnClickListener" />
+
         <variable
             name="gif"
             type="com.thekeval.gifexplorer.data.models.GiphyResponseData" />
+
+        <variable
+            name="setHeart"
+            type="com.thekeval.gifexplorer.views.SetHeartDrawable" />
+
+        <variable
+            name="gifFavFabClicked"
+            type="com.thekeval.gifexplorer.views.GifFavoriteFABClicked" />
+
+<!--        <variable-->
+<!--            name="onFavClickListener"-->
+<!--            type="android.view.View.OnClickListener" />-->
+
+<!--        <variable-->
+<!--            name="clickListener"-->
+<!--            type="android.view.View.OnClickListener" />-->
+
+<!--        <variable-->
+<!--            name="onUnFavClickListener"-->
+<!--            type="android.view.View.OnClickListener" />-->
+
+<!--        <variable-->
+<!--            name="favoriteVM"-->
+<!--            type="com.thekeval.gifexplorer.viewmodels.FavouriteViewModel" />-->
+<!--        <variable-->
+<!--            name="trendingVM"-->
+<!--            type="com.thekeval.gifexplorer.viewmodels.TrendingViewModel" />-->
     </data>
 
     <com.thekeval.gifexplorer.views.MaskedCardView
@@ -20,10 +45,9 @@
         android:layout_marginStart="@dimen/card_side_margin"
         android:layout_marginEnd="@dimen/card_side_margin"
         android:layout_marginBottom="@dimen/card_bottom_margin"
-
         app:cardElevation="@dimen/card_elevation"
         app:cardPreventCornerOverlap="false"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.Gif.Card"> <!-- android:onClick="@{clickListener}" -->
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Gif.Card">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -41,21 +65,40 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab"
+                android:id="@+id/fab_fav"
                 style="@style/Widget.MaterialComponents.FloatingActionButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/fab_margin"
-                android:onClick="@{clickListener}"
+                android:onClick="@{() -> gifFavFabClicked.onClicked(gif)}"
                 android:tint="@android:color/white"
 
                 app:layout_anchorGravity="bottom|end"
                 app:layout_constraintBottom_toBottomOf="@+id/plant_photo"
                 app:layout_constraintEnd_toEndOf="@+id/plant_photo"
                 app:shapeAppearance="@style/ShapeAppearance.GifExplorer.FAB"
-                app:srcCompat="@drawable/ic_favorite" />
-            <!-- app:isFabGone="@{viewModel.isPlanted}" -->
 
+                app:fabSrc="@{setHeart.setHeartDrawable(gif)}"/>
+
+            <!-- app:srcCompat="@drawable/ic_heart"
+                 app:isFabGone="@{favoriteVM!=null ? !favoriteVM.isFavorited(gif.id) : !trendingVM.isFavorited(gif.id)}"
+                 -->
+
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:id="@+id/fab_unFav"-->
+<!--                style="@style/Widget.MaterialComponents.FloatingActionButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/fab_margin"-->
+<!--                android:onClick="@{onUnFavClickListener}"-->
+<!--                android:tint="@android:color/white"-->
+<!--                app:isFabGone="@{favoriteVM!=null ? favoriteVM.isFavorited(gif.id) : trendingVM.isFavorited(gif.id)}"-->
+<!--                app:layout_anchorGravity="bottom|end"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/plant_photo"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/plant_photo"-->
+<!--                app:shapeAppearance="@style/ShapeAppearance.GifExplorer.FAB"-->
+<!--                app:srcCompat="@drawable/ic_heart_filled"-->
+<!--                tools:visibility="gone"/>-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
